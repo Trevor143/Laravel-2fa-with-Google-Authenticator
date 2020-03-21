@@ -2,9 +2,8 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -31,7 +30,8 @@ class User extends Authenticatable
     /**
      * Ecrypt the user's google_2fa secret.
      *
-     * @param  string  $value
+     * @param string $value
+     *
      * @return string
      */
     public function setGoogle2faSecretAttribute($value)
@@ -42,12 +42,12 @@ class User extends Authenticatable
     /**
      * Decrypt the user's google_2fa secret.
      *
-     * @param  string  $value
+     * @param string $value
+     *
      * @return string
      */
     public function getGoogle2faSecretAttribute($value)
     {
         return decrypt($value);
     }
-
 }

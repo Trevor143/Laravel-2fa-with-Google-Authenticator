@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class AddGoogle2faColumnToUsers extends Migration
 {
@@ -15,7 +15,6 @@ class AddGoogle2faColumnToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->text('google2fa_secret');
-
         });
     }
 
@@ -28,7 +27,6 @@ class AddGoogle2faColumnToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('google2fa_secret');
-
         });
     }
 }
