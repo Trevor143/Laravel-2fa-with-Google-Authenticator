@@ -14,15 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/event', function (){
+Route::get('/event', function () {
     return view('event1');
 });
-Route::get('/test', function (){
+Route::get('/test', function () {
     return view('test');
 });
-
 
 Route::get('data', 'TimelineController@index');
 
 Route::resource('events', 'TimelineController');
-

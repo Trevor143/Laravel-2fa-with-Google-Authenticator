@@ -20,9 +20,9 @@ class TimelineController extends Controller
         $to = $request->to;
 
         return response()->json([
-            "data" => $events->
-            where("start_date", "<", $to)->
-            where("end_date", ">=", $from)->get()
+            'data' => $events->
+            where('start_date', '<', $to)->
+            where('end_date', '>=', $from)->get(),
         ]);
     }
 
@@ -39,7 +39,8 @@ class TimelineController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -53,15 +54,16 @@ class TimelineController extends Controller
         $event->save();
 
         return response()->json([
-            "action"=> "inserted",
-            "tid" => $event->id
+            'action'=> 'inserted',
+            'tid'   => $event->id,
         ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Timeline  $timeline
+     * @param \App\Timeline $timeline
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Timeline $timeline)
@@ -72,7 +74,8 @@ class TimelineController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Timeline  $timeline
+     * @param \App\Timeline $timeline
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Timeline $timeline)
@@ -83,8 +86,9 @@ class TimelineController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Timeline  $timeline
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Timeline            $timeline
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -98,14 +102,15 @@ class TimelineController extends Controller
         $event->save();
 
         return response()->json([
-            "action"=> "updated"
+            'action'=> 'updated',
         ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Timeline  $timeline
+     * @param \App\Timeline $timeline
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -114,7 +119,7 @@ class TimelineController extends Controller
         $event->delete();
 
         return response()->json([
-            "action"=> "deleted"
+            'action'=> 'deleted',
         ]);
     }
 }
